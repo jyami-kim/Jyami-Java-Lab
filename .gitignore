@@ -1,4 +1,5 @@
-
+*/oauth2/*/application.yml
+*/oauth2/*/application-google.yml
 */.gradle
 */build/
 !gradle/wrapper/gradle-wrapper.jar

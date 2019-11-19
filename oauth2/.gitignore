@@ -1,5 +1,5 @@
 application.yml
-google.yml
+application-google.yml
 
 HELP.md
 .gradle
