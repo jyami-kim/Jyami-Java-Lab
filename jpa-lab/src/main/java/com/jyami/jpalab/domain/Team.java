@@ -26,6 +26,4 @@ public class Team {
     private Team(String name) { //여기 그냥 members도 param으로 넣었다가 에러 팡!
         this.name = name;
     }
-
-
 }

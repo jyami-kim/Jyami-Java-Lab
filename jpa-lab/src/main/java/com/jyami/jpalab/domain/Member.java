@@ -19,9 +19,7 @@ public class Member {
     @Column(name = "USERNAME")
     private String username;
 
-//    @ManyToOne(cascade = CascadeType.ALL)
-    @ManyToOne(fetch = FetchType.EAGER)
-//    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "TEAM_ID")
     private Team team;
 
@@ -29,6 +27,5 @@ public class Member {
     private Member(String username, Team team) {
         this.username = username;
         this.team = team;
-//        team.getMembers().add(this);
     }
 }

@@ -17,8 +17,9 @@ public class Child {
 
     private String name;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn
+    @Setter
     private Parent parent;
 
     @Builder

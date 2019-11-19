@@ -79,7 +79,7 @@ public class ParentTest {
         entityManager.clear();
 
         Parent parent = parentRepository.findById(2L).get();
-        parent.getChildList().remove(0);
+        Child remove = parent.getChildList().remove(0);
         parentRepository.save(parent);
 
         entityManager.clear();
