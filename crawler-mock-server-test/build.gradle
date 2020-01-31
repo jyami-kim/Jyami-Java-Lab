@@ -23,8 +23,12 @@ dependencies {
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 
-	testImplementation group: 'org.mock-server', name: 'mockserver-netty', version: '5.6.1'
 	testImplementation group: 'junit', name: 'junit', version: '4.12'
+
+	testCompile group: 'org.mock-server', name: 'mockserver-netty', version: '5.8.1'
+	testImplementation group: 'org.mock-server', name: 'mockserver-client-java', version: '5.8.1'
+
+
 }
 
 test {

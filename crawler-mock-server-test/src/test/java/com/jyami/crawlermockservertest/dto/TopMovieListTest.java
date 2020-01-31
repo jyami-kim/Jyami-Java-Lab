@@ -2,11 +2,12 @@ package com.jyami.crawlermockservertest.dto;
 
 import com.jyami.crawlermockservertest.runner.NaverMovieCrawlerTest;
 import org.jsoup.nodes.Document;
-import org.junit.Before;
+
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
 
-import javax.print.Doc;
 
+import static com.jyami.crawlermockservertest.util.testUtil.getCrawlingResultWithFile;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 
@@ -15,11 +16,17 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
  */
 class TopMovieListTest {
 
+    Document document;
+
+    @BeforeEach
+    void setUp() {
+        document = getCrawlingResultWithFile("ranking_naver_movie.html");
+    }
+
     @Test
     void getTopMovies() {
-
-        Document document = new NaverMovieCrawlerTest().getCrawlingResultWithFile("ranking_naver_movie.html");
         TopMovieList topMovieList = new TopMovieList(document);
         assertThat(topMovieList.getTopMovies().size()).isEqualTo(50);
     }
+
 }
