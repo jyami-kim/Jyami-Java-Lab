@@ -9,12 +9,12 @@ import org.jsoup.select.Elements;
  */
 
 public class Movie {
-    private String rank;
+    private int rank;
     private String title;
     private String detailLink;
 
     @Builder
-    private Movie(String rank, String title, String detailLink) {
+    private Movie(int rank, String title, String detailLink) {
         this.rank = rank;
         this.title = title;
         this.detailLink = detailLink;
@@ -22,7 +22,7 @@ public class Movie {
 
     public static Movie of (Element element){
         return Movie.builder()
-                .rank(element.select(".ac img").attr("alt"))
+                .rank(Integer.parseInt(element.select(".ac img").attr("alt")))
                 .title(element.select(".title").text())
                 .detailLink(element.select(".title a").attr("href"))
                 .build();
