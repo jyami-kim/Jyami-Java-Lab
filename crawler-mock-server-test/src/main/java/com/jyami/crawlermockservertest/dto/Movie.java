@@ -1,13 +1,14 @@
 package com.jyami.crawlermockservertest.dto;
 
 import lombok.Builder;
+import lombok.Getter;
 import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
 
 /**
  * Created by jyami on 2020/01/30
  */
 
+@Getter
 public class Movie {
     private int rank;
     private String title;

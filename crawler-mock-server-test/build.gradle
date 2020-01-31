@@ -18,9 +18,13 @@ dependencies {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
 	implementation 'org.jsoup:jsoup:1.11.3'
-	testImplementation group: 'org.mock-server', name: 'mockserver-netty', version: '5.6.1'
+	compile group: 'org.apache.maven', name: 'maven-core', version: '3.6.3'
+
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
+
+	testImplementation group: 'org.mock-server', name: 'mockserver-netty', version: '5.6.1'
+	testImplementation group: 'junit', name: 'junit', version: '4.12'
 }
 
 test {
