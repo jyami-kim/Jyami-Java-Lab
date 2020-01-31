@@ -36,9 +36,10 @@ public class NaverMovieCrawlerTest {
     @Test
     public void naverMovieMockServerTest(){
 
-        createPatchNoteServer("ranking_naver_movie.html");
+        createNaverRankingPageServer("ranking_naver_movie.html");
         Document document = new NaverMovieCrawler().getCrawlingResult("http://localhost:9000/movie/sdb/rank/rmovie.nhn");
         TopMovieList topMovieList = new TopMovieList(document);
+        System.out.println("assert Test");
         assertThat(topMovieList.getTopMovies().size()).isEqualTo(50);
 
     }
@@ -61,7 +62,7 @@ public class NaverMovieCrawlerTest {
         }
     }
 
-    private void createPatchNoteServer(String filePath){
+    private void createNaverRankingPageServer(String filePath){
         byte[] response = readHtmlFile(filePath);
 
         new MockServerClient("localhost", PORT)
