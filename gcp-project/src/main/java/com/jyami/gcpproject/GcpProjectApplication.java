@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class GcpProjectApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(GcpProjectApplication.class, args);
+		SpringApplication.run(GcpProjectApplication.class, args);;;
 	}
 
 }
