@@ -5,6 +5,9 @@
 !gradle/wrapper/gradle-wrapper.jar
 */out
 
+application.properties
+daily-commit-e649ff81943b.json
+
 ### STS ###
 .apt_generated
 .classpath

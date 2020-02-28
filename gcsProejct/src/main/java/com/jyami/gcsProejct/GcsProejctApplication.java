@@ -1,13 +1,13 @@
-package com.jyami.gcpproject;
+package com.jyami.gcsProejct;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class GcpProjectApplication {
+public class GcsProejctApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(GcpProjectApplication.class, args);;;
+		SpringApplication.run(GcsProejctApplication.class, args);
 	}
 
 }

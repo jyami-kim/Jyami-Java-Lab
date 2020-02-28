@@ -1,10 +1,10 @@
-package com.jyami.gcpproject;
+package com.jyami.gcsProejct;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class GcpProjectApplicationTests {
+class GcsProejctApplicationTests {
 
 	@Test
 	void contextLoads() {

@@ -1,4 +1,4 @@
-package com.jyami.gcpproject.config;
+package com.jyami.gcsProejct.config;
 
 import com.google.auth.oauth2.ServiceAccountCredentials;
 import com.google.cloud.storage.Storage;
@@ -16,17 +16,13 @@ import java.io.IOException;
 @Configuration
 public class GCPConfig {
 
-    @Value("${spring.cloud.gcp.project-id}")
-    private String projectID;
-
     @Value("${spring.cloud.gcp.storage.credentials.location}")
     private Resource credentialLocation;
 
     @Bean
     public Storage injectGCPStorage() throws IOException {
         return StorageOptions.newBuilder()
-                .setCredentials(ServiceAccountCredentials.fromStream(credentialLocation.getInputStream()))
-                .setProjectId(projectID).build().getService();
+                .setCredentials(ServiceAccountCredentials.fromStream(credentialLocation.getInputStream())).build().getService();
     }
 
 }
