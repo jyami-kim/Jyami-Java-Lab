@@ -20,7 +20,7 @@ import java.util.Arrays;
 @Component
 @Slf4j
 @RequiredArgsConstructor
-public class GCPFileIOService {
+public class GCSService {
 
     private final Storage storage;
 
@@ -36,7 +36,6 @@ public class GCPFileIOService {
         log.info("fileName : " + fileName);
         BlobInfo blobInfo =storage.create(
                 BlobInfo.newBuilder("test-storage-mj", fileName) // 폴더 만들 때는 맨 앞에 / 빼고 만들
-                        .setContentType("application/pdf")
                         .setAcl(new ArrayList<>(Arrays.asList(Acl.of(Acl.User.ofAllAuthenticatedUsers(), Acl.Role.READER))))
                         .build(),
                 new FileInputStream(saveLocation));

@@ -5,8 +5,11 @@
 !gradle/wrapper/gradle-wrapper.jar
 */out
 
+### GCS Project
+gcsProject/download/*
 application.properties
 daily-commit-e649ff81943b.json
+
 
 ### STS ###
 .apt_generated
