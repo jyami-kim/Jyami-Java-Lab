@@ -1,9 +1,6 @@
 package com.jyami.gcsProejct.service;
 
-import com.google.cloud.storage.Acl;
-import com.google.cloud.storage.Blob;
-import com.google.cloud.storage.BlobInfo;
-import com.google.cloud.storage.Storage;
+import com.google.cloud.storage.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -25,7 +22,7 @@ public class GCSService {
     private final Storage storage;
 
     public Blob getFileFromGCS(String gcsLocation, String saveLocation) {
-        Blob blob = storage.get("test-storage-mj", gcsLocation);
+        Blob blob = storage.get("javabom-storage", gcsLocation);
         log.info("download File From GCS : " + blob.toString());
         blob.downloadTo(Paths.get(saveLocation));
         return blob;
@@ -35,7 +32,7 @@ public class GCSService {
     public String uploadFileToGCS(String fileName, String saveLocation) throws IOException {
         log.info("fileName : " + fileName);
         BlobInfo blobInfo =storage.create(
-                BlobInfo.newBuilder("test-storage-mj", fileName) // 폴더 만들 때는 맨 앞에 / 빼고 만들
+                BlobInfo.newBuilder("javabom-storage", fileName) // 폴더 만들 때는 맨 앞에 / 빼고 만들
                         .setAcl(new ArrayList<>(Arrays.asList(Acl.of(Acl.User.ofAllAuthenticatedUsers(), Acl.Role.READER))))
                         .build(),
                 new FileInputStream(saveLocation));
