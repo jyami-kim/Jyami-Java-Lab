@@ -1,9 +1,13 @@
 package com.jyami.gcsProejct.service;
 
 import com.google.cloud.storage.*;
+import com.jyami.gcsProejct.dto.DownloadReqDto;
+import com.jyami.gcsProejct.dto.UploadReqDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -14,33 +18,29 @@ import java.util.Arrays;
 /**
  * Created by jyami on 2020/02/25
  */
-@Component
+@Service
 @Slf4j
 @RequiredArgsConstructor
 public class GCSService {
 
     private final Storage storage;
 
-    public Blob getFileFromGCS(String gcsLocation, String saveLocation) {
-        Blob blob = storage.get("javabom-storage", gcsLocation);
-        log.info("download File From GCS : " + blob.toString());
-        blob.downloadTo(Paths.get(saveLocation));
+    public Blob downloadFileFromGCS(DownloadReqDto downloadReqDto) {
+        Blob blob = storage.get(downloadReqDto.getBucketName(), downloadReqDto.getDownloadFileName());
+        blob.downloadTo(Paths.get(downloadReqDto.getLocalFileLocation()));
         return blob;
     }
 
     @SuppressWarnings("deprecation")
-    public String uploadFileToGCS(String fileName, String saveLocation) throws IOException {
-        log.info("fileName : " + fileName);
+    public BlobInfo uploadFileToGCS(UploadReqDto uploadReqDto) throws IOException {
+
         BlobInfo blobInfo =storage.create(
-                BlobInfo.newBuilder("javabom-storage", fileName) // 폴더 만들 때는 맨 앞에 / 빼고 만들
+                BlobInfo.newBuilder(uploadReqDto.getBucketName(), uploadReqDto.getUploadFileName())
                         .setAcl(new ArrayList<>(Arrays.asList(Acl.of(Acl.User.ofAllAuthenticatedUsers(), Acl.Role.READER))))
                         .build(),
-                new FileInputStream(saveLocation));
+                new FileInputStream(uploadReqDto.getLocalFileLocation()));
 
-        log.info("upload File to GCS : " + blobInfo.toString());
-
-        return blobInfo.toString();
+        return blobInfo;
     }
-
 
 }
