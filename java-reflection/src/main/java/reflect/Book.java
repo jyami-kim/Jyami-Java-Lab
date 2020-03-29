@@ -1,4 +1,4 @@
-package domain;
+package reflect;
 
 /**
  * Created by jyami on 2020/03/22

@@ -1,4 +1,4 @@
-package domain;
+package reflect;
 
 import org.junit.Test;
 
@@ -7,8 +7,6 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by jyami on 2020/03/22
@@ -19,7 +17,7 @@ public class BookTest {
         Class<Book> bookClass = Book.class;
         Book book = new Book();
         Class<? extends Book> aClass = book.getClass();
-        Class<?> aClass1 = Class.forName("domain.Book");
+        Class<?> aClass1 = Class.forName("reflect.Book");
     }
 
     @Test
