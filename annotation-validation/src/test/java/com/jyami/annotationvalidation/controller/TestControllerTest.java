@@ -2,6 +2,7 @@ package com.jyami.annotationvalidation.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jyami.annotationvalidation.dto.UserDto;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -21,17 +22,15 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 class TestControllerTest {
 
-    @Autowired
-    private MockMvc mockMvc;
-
-    @Autowired
-    private ObjectMapper objectMapper;
+    @Autowired private MockMvc mockMvc;
+    @Autowired private ObjectMapper objectMapper;
 
     @Test
+    @DisplayName("@NotNull 에러 테스트")
     void isValidObject() throws Exception {
 
         UserDto userDto = UserDto.builder()
-                .name("jyami")
+                .email("mjung1798@gmail.com")
                 .build();
 
         String userDtoJsonString = objectMapper.writeValueAsString(userDto);
@@ -39,7 +38,6 @@ class TestControllerTest {
         mockMvc.perform(post("/user")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(userDtoJsonString))
-                .andExpect(status().isOk());
+                .andExpect(status().isBadRequest());
     }
-
 }

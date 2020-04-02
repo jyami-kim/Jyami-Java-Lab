@@ -19,7 +19,7 @@ public class TestController {
     @PostMapping("/user")
     public ResponseEntity<String> savePost(final @Valid @RequestBody UserDto userDto) {
         log.info(userDto.toString());
-        return ResponseEntity.ok().body("postDto체 객체 검증 성공");
+        return ResponseEntity.ok().body("postDto 객체 검증 성공");
     }
 
     @GetMapping("/user")
