@@ -1,6 +1,5 @@
 package proxy;
 
-import jdk.nashorn.internal.objects.annotations.Getter;
 
 /**
  * Created by jyami on 2020/03/29

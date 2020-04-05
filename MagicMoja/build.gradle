@@ -13,8 +13,7 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
-    compile group: 'cglib', name: 'cglib', version: '3.3.0'
-    compile group: 'net.bytebuddy', name: 'byte-buddy', version: '1.10.8'
-    implementation files('libs/MagicMoja-1.0-SNAPSHOT.jar')
+    compile group: 'com.google.auto.service', name: 'auto-service', version: '1.0-rc6'
+    compile group: 'com.squareup', name: 'javapoet', version: '1.12.1'
 
 }
