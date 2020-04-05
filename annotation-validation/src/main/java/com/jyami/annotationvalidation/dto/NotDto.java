@@ -1,8 +1,6 @@
 package com.jyami.annotationvalidation.dto;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import javax.validation.constraints.*;
 
@@ -12,6 +10,8 @@ import javax.validation.constraints.*;
 @NoArgsConstructor
 @Getter
 @ToString
+@Builder
+@AllArgsConstructor
 public class NotDto {
     @NotNull
     private String notNull;
