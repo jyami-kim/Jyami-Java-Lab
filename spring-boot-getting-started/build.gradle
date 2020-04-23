@@ -24,6 +24,9 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
+//    implementation files('libs/autoConfigure-1.0-SNAPSHOT.jar')
+//    implementation files('libs/autoConfigure-2.0-SNAPSHOT.jar')
+    implementation files('libs/autoConfigure-3.0-SNAPSHOT.jar')
     compile("org.springframework.boot:spring-boot-starter-web")
     testCompile("org.springframework.boot:spring-boot-starter-test")
 }

@@ -1,0 +1,3 @@
+# 스프링 오토컨피규레이션이 켜져있으면 매핑된다.
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.jyami.HolomanConfiguration 
