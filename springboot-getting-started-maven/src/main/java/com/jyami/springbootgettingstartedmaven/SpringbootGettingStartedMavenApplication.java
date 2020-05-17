@@ -7,7 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SpringbootGettingStartedMavenApplication {
 
 	public static void main(String[] args) {
-//		SpringApplication application = new SpringApplication
 		SpringApplication.run(SpringbootGettingStartedMavenApplication.class, args);
 	}
 
