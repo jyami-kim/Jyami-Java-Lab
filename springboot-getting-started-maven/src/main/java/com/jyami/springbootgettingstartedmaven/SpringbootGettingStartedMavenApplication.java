@@ -2,6 +2,7 @@ package com.jyami.springbootgettingstartedmaven;
 
 import org.apache.catalina.connector.Connector;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
@@ -32,7 +33,10 @@ public class SpringbootGettingStartedMavenApplication {
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringbootGettingStartedMavenApplication.class, args);
+		SpringApplication springApplication = new SpringApplication(SpringbootGettingStartedMavenApplication.class);
+		springApplication.addListeners(new SampleListener());
+		springApplication.setWebApplicationType(WebApplicationType.NONE);
+		springApplication.run(args);
 	}
 
 }
