@@ -1,4 +1,4 @@
-package com.jyami.springbootgettingstartedmaven;
+package com.jyami.springbootgettingstartedmaven.testing;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,9 +11,9 @@ public class SampleController {
 
     private SampleService sampleService;
 
-    @GetMapping("")
+    @GetMapping("/hello")
     public String hello() {
-        return "hello" + sampleService.getName();
+        return "hello " + sampleService.getName();
     }
 
 }

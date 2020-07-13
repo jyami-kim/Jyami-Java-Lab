@@ -1,4 +1,4 @@
-package com.jyami.springbootgettingstartedmaven;
+package com.jyami.springbootgettingstartedmaven.testing;
 
 import org.springframework.stereotype.Service;
 
