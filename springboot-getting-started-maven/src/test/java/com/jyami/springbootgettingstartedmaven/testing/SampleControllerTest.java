@@ -8,6 +8,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.web.reactive.server.WebTestClient;
+import org.springframework.web.reactive.function.client.WebClient;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
@@ -20,7 +22,7 @@ import static org.mockito.Mockito.when;
 public class SampleControllerTest {
 
     @Autowired
-    private TestRestTemplate testRestTemplate;
+    private WebTestClient webTestClient;
 
     @MockBean
     private SampleService sampleService;
@@ -30,8 +32,9 @@ public class SampleControllerTest {
 
         when(sampleService.getName()).thenReturn("minjeong");
 
-        String forObject = testRestTemplate.getForObject("/helloName", String.class);
-        assertThat(forObject).isEqualTo("hello minjeong");
-
+        webTestClient.get().uri("/helloName")
+                .exchange()
+                .expectStatus().isOk()
+                .expectBody(String.class).isEqualTo("hello minjeong");
     }
 }
