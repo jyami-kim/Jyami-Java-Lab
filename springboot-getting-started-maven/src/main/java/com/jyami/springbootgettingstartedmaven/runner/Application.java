@@ -1,4 +1,4 @@
-package com.jyami.springbootgettingstartedmaven;
+package com.jyami.springbootgettingstartedmaven.runner;
 
 import org.apache.catalina.Context;
 import org.apache.catalina.LifecycleException;

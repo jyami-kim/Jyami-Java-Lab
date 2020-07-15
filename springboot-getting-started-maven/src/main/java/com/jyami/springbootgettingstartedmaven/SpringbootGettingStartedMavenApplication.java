@@ -1,5 +1,6 @@
 package com.jyami.springbootgettingstartedmaven;
 
+import com.jyami.springbootgettingstartedmaven.runner.SampleListener;
 import org.apache.catalina.connector.Connector;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.WebApplicationType;

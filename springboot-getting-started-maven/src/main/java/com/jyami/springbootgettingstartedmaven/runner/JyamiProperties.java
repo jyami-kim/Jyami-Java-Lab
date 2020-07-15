@@ -1,4 +1,4 @@
-package com.jyami.springbootgettingstartedmaven;
+package com.jyami.springbootgettingstartedmaven.runner;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
