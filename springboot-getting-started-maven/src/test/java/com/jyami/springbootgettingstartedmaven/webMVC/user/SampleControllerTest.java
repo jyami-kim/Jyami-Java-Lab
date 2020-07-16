@@ -54,4 +54,12 @@ public class SampleControllerTest {
         HtmlHeading1 h1 = page.getFirstByXPath("//h1");
         assertThat(h1.getTextContent()).isEqualTo("jyami");
     }
+
+    @Test
+    public void hatoes() throws Exception {
+        mockMvc.perform(get("/sample/selfLink"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$._links.self").exists());
+    }
 }
