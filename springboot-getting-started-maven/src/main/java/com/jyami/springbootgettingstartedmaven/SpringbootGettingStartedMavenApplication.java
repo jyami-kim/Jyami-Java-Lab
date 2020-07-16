@@ -35,8 +35,8 @@ public class SpringbootGettingStartedMavenApplication {
 
 	public static void main(String[] args) {
 		SpringApplication springApplication = new SpringApplication(SpringbootGettingStartedMavenApplication.class);
-		springApplication.addListeners(new SampleListener());
-		springApplication.setWebApplicationType(WebApplicationType.NONE);
+//		springApplication.addListeners(new SampleListener());
+//		springApplication.setWebApplicationType(WebApplicationType.NONE);
 		springApplication.run(args);
 	}
 
