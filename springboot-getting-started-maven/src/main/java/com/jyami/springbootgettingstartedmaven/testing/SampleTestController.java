@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
  * Created by jyami on 2020/07/13
  */
 @RestController
-public class SampleController {
+public class SampleTestController {
 
-    Logger log = LoggerFactory.getLogger(SampleController.class);
+    Logger log = LoggerFactory.getLogger(SampleTestController.class);
 
     @Autowired
     private SampleService sampleService;
