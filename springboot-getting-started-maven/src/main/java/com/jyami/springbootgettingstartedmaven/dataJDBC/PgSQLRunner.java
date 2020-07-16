@@ -10,11 +10,12 @@ import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.Statement;
 
+
 /**
  * Created by jyami on 2020/07/16
  */
 @Component
-public class MySQLRunner implements ApplicationRunner {
+public class PgSQLRunner implements ApplicationRunner {
 
     @Autowired
     DataSource dataSource;
@@ -29,11 +30,11 @@ public class MySQLRunner implements ApplicationRunner {
             System.out.println(connection.getMetaData().getUserName());
             System.out.println(connection.getClass());
 
-//            Statement statement = connection.createStatement();
-//            String sql = "CREATE TABLE USER (ID INTEGER NOT NULL, name VARCHAR(255), PRIMARY KEY (id));";
-//            statement.executeUpdate(sql);
+            Statement statement = connection.createStatement();
+            String sql = "CREATE TABLE ACCOUNT (ID INTEGER NOT NULL, name VARCHAR(255), PRIMARY KEY (id));";
+            statement.executeUpdate(sql);
         }
 
-//        jdbcTemplate.execute("INSERT INTO USER VALUES (1, 'jyami')");
+        jdbcTemplate.execute("INSERT INTO ACCOUNT VALUES (1, 'jyami')");
     }
 }
