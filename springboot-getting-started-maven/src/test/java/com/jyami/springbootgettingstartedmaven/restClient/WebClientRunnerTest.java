@@ -1,24 +1,29 @@
 package com.jyami.springbootgettingstartedmaven.restClient;
 
+import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
-import org.springframework.boot.ApplicationRunner;
-import org.springframework.stereotype.Component;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.util.StopWatch;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 /**
  * Created by jyami on 2020/07/22
  */
-@Component
-public class WebClientRunner implements ApplicationRunner {
+@SpringBootTest
+@RunWith(SpringRunner.class)
+class WebClientRunnerTest {
 
     @Autowired
     WebClient.Builder builder;
 
-    @Override
-    public void run(ApplicationArguments args) throws Exception {
+    @Test
+    public void run() {
         WebClient webClient = builder.build();
 
         StopWatch stopWatch = new StopWatch();
@@ -30,7 +35,7 @@ public class WebClientRunner implements ApplicationRunner {
 
         helloMono.subscribe(s -> {
             System.out.println(s);
-            if(stopWatch.isRunning()){
+            if (stopWatch.isRunning()) {
                 stopWatch.stop();
             }
             System.out.println(stopWatch.prettyPrint());
@@ -43,11 +48,12 @@ public class WebClientRunner implements ApplicationRunner {
 
         worldMono.subscribe(s -> {
             System.out.println(s);
-            if(stopWatch.isRunning()){
+            if (stopWatch.isRunning()) {
                 stopWatch.stop();
             }
             System.out.println(stopWatch.prettyPrint());
             stopWatch.start();
         });
     }
+
 }
