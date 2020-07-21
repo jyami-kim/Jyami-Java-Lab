@@ -16,7 +16,7 @@ public class WebAccountSettingConfig implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        AccountSecurity jyami = accountSecurityService.createAccount("jyami", "1234");
-        System.out.println("username: " + jyami.getUsername() + " password: " + jyami.getPassword());
+//        AccountSecurity jyami = accountSecurityService.createAccount("jyami", "1234");
+//        System.out.println("username: " + jyami.getUsername() + " password: " + jyami.getPassword());
     }
 }
