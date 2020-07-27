@@ -1,7 +1,7 @@
 package chatper1;
 
-import chapter1.Currency;
-import chapter1.Transaction;
+import chapter1.stream.Currency;
+import chapter1.stream.Transaction;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

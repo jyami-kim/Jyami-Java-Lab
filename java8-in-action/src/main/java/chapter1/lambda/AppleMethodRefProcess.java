@@ -1,4 +1,6 @@
-package chapter1;
+package chapter1.lambda;
+
+import chapter1.methodReference.Apple;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package chapter1;
+package chapter1.stream;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

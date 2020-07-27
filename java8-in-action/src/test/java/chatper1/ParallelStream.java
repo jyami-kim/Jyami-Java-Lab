@@ -1,6 +1,6 @@
 package chatper1;
 
-import chapter1.Apple;
+import chapter1.methodReference.Apple;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

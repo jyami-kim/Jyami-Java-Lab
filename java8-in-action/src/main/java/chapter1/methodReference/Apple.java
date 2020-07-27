@@ -1,9 +1,8 @@
-package chapter1;
+package chapter1.methodReference;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-import java.util.List;
 
 /**
  * Created by jyami on 2020/07/26
@@ -12,5 +11,5 @@ import java.util.List;
 @AllArgsConstructor
 public class Apple {
     private String color;
-    private int weight;
+    private Integer weight;
 }

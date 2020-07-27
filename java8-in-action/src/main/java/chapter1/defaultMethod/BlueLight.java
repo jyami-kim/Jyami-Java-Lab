@@ -1,4 +1,4 @@
-package chapter1;
+package chapter1.defaultMethod;
 
 /**
  * Created by jyami on 2020/07/26
