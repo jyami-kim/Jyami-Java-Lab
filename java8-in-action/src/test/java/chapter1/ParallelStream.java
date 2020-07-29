@@ -1,4 +1,4 @@
-package chatper1;
+package chapter1;
 
 import chapter1.methodReference.Apple;
 import org.junit.jupiter.api.BeforeEach;

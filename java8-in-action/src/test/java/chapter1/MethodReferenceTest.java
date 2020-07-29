@@ -1,4 +1,4 @@
-package chatper1;
+package chapter1;
 
 
 
@@ -8,8 +8,6 @@ import org.junit.jupiter.api.Test;
 import java.io.File;
 import java.io.FileFilter;
 import java.util.Arrays;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by jyami on 2020/07/26
