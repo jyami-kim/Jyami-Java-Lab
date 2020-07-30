@@ -1,8 +1,7 @@
-package com.jyami.springsecuritypolling.payload;
+package com.jyami.springsecuritypolling.payload.request;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.validation.constraints.NotBlank;
 

@@ -1,3 +1,0 @@
-app:
-  jwtSecret: JWTWithJyamiSuperSecretKey
-  jwtExpirationInMs: 604800000

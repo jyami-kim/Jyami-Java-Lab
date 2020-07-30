@@ -1,7 +1,10 @@
+app-jwt:
+  jwt-secret: JWTWithJyamiSuperSecretKey
+  jwt-expiration-in-ms: 604800000
+
 spring:
   profiles:
     include: token
-
   datasource:
     url: jdbc:mysql://localhost:3306/polling_app?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false
     driver-class-name: com.mysql.cj.jdbc.Driver

@@ -1,5 +1,6 @@
-package com.jyami.springsecuritypolling.payload;
+package com.jyami.springsecuritypolling.payload.request;
 
+import com.jyami.springsecuritypolling.user.User;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -31,4 +32,12 @@ public class SignUpReqeust {
     @Size(min = 6, max = 20)
     private String password;
 
+    public User toEntity(){
+        return User.builder()
+                .email(this.email)
+                .name(this.name)
+                .username(this.username)
+                .password(this.password)
+                .build();
+    }
 }

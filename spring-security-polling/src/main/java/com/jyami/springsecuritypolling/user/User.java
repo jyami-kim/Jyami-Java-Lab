@@ -1,8 +1,6 @@
 package com.jyami.springsecuritypolling.user;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.*;
@@ -15,7 +13,8 @@ import java.util.Set;
  */
 @Entity
 @NoArgsConstructor
-@AllArgsConstructor
+@Builder
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
 @Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "username" }), @UniqueConstraint(columnNames = { "email" }) })
 public class User {
@@ -40,8 +39,10 @@ public class User {
 
     @NotBlank
     @Size(max = 100)
+    @Setter
     private String password;
 
+    @Setter
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id"),
