@@ -1,5 +1,6 @@
 package com.jyami.springsecuritypolling.user;
 
+import lombok.Getter;
 import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.*;
@@ -8,6 +9,7 @@ import javax.persistence.*;
  * Created by jyami on 2020/07/30
  */
 @Entity
+@Getter
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
