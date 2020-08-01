@@ -1,4 +1,4 @@
-package com.jyami.springsecuritypolling.user;
+package com.jyami.springsecuritypolling.domain;
 
 import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;

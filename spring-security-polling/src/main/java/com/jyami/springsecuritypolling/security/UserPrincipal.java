@@ -1,7 +1,7 @@
 package com.jyami.springsecuritypolling.security;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.jyami.springsecuritypolling.user.User;
+import com.jyami.springsecuritypolling.domain.user.User;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

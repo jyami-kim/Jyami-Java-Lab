@@ -1,4 +1,4 @@
-package com.jyami.springsecuritypolling.user;
+package com.jyami.springsecuritypolling.domain.user;
 
 /**
  * Created by jyami on 2020/07/30

@@ -1,4 +1,4 @@
-package com.jyami.springsecuritypolling.user;
+package com.jyami.springsecuritypolling.domain.user;
 
 import lombok.Getter;
 import org.hibernate.annotations.NaturalId;

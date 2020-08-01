@@ -1,4 +1,4 @@
-package com.jyami.springsecuritypolling.user;
+package com.jyami.springsecuritypolling.domain.user;
 
 import lombok.*;
 import org.hibernate.annotations.NaturalId;
@@ -21,6 +21,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id")
     private Long id;
 
     @NotBlank

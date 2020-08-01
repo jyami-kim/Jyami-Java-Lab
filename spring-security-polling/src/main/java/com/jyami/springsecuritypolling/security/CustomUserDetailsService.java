@@ -1,7 +1,7 @@
 package com.jyami.springsecuritypolling.security;
 
-import com.jyami.springsecuritypolling.user.User;
-import com.jyami.springsecuritypolling.user.UserRepository;
+import com.jyami.springsecuritypolling.domain.user.User;
+import com.jyami.springsecuritypolling.domain.user.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

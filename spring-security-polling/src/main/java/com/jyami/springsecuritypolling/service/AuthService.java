@@ -3,7 +3,7 @@ package com.jyami.springsecuritypolling.service;
 import com.jyami.springsecuritypolling.exception.AppException;
 import com.jyami.springsecuritypolling.exception.BadRequestException;
 import com.jyami.springsecuritypolling.payload.request.SignUpReqeust;
-import com.jyami.springsecuritypolling.user.*;
+import com.jyami.springsecuritypolling.domain.user.*;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;

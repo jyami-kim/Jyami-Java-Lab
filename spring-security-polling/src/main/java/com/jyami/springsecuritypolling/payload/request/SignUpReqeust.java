@@ -1,6 +1,6 @@
 package com.jyami.springsecuritypolling.payload.request;
 
-import com.jyami.springsecuritypolling.user.User;
+import com.jyami.springsecuritypolling.domain.user.User;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
