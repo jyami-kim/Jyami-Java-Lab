@@ -1,15 +1,18 @@
 package com.jyami.springsecuritypolling.domain.poll;
 
-import com.querydsl.jpa.impl.JPAQueryFactory;
-import lombok.RequiredArgsConstructor;
+import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
+
+import java.util.List;
+
+import static com.jyami.springsecuritypolling.domain.poll.QVote.vote;
 
 /**
  * Created by jyami on 2020/07/31
  */
-@RequiredArgsConstructor
-public class VoteRepositoryImpl implements VoteRepositoryCustom {
+public class VoteRepositoryImpl extends QuerydslRepositorySupport implements VoteRepositoryCustom {
 
-    private final JPAQueryFactory queryFactory;
-
+    public VoteRepositoryImpl(Class<?> domainClass) {
+        super(Vote.class);
+    }
 
 }

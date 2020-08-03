@@ -1,6 +1,7 @@
 package com.jyami.springsecuritypolling.domain.poll;
 
 import com.jyami.springsecuritypolling.domain.BaseTimeEntity;
+import com.jyami.springsecuritypolling.domain.UserAuditDate;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.BatchSize;
@@ -11,7 +12,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +22,7 @@ import java.util.List;
 @Getter
 @NoArgsConstructor
 @Entity
-public class Poll extends BaseTimeEntity {
+public class Poll extends UserAuditDate {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "poll_id")
@@ -38,7 +39,7 @@ public class Poll extends BaseTimeEntity {
     private List<Choice> choices = new ArrayList<>();
 
     @NotNull
-    private Instant expirationDateTime;
+    private LocalDateTime expirationDateTime;
 
     public void addChoice(Choice choice){
         choices.add(choice);

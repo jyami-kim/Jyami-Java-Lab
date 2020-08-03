@@ -1,6 +1,7 @@
 package com.jyami.springsecuritypolling.controller;
 
 import com.jyami.springsecuritypolling.exception.BadRequestException;
+import com.jyami.springsecuritypolling.exception.ResourceNotFoundException;
 import com.jyami.springsecuritypolling.payload.response.ApiResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -12,10 +13,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class AdviceController {
 
-    @ExceptionHandler(BadRequestException.class)
-    public ResponseEntity<ApiResponse> badRequestException(BadRequestException e) {
+    @ExceptionHandler({BadRequestException.class, ResourceNotFoundException.class})
+    public ResponseEntity<ApiResponse> badRequestException(Exception e) {
         return ResponseEntity.badRequest().body(ApiResponse.failRespone(e.getMessage()));
     }
-
-
 }

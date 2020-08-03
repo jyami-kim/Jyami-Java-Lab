@@ -3,7 +3,7 @@ package com.jyami.springsecuritypolling.payload.response;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 
-import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -18,8 +18,8 @@ public class PollResponse {
     private String question;
     private List<ChoiceResponse> choices;
     private UserSummaryResponse createdBy;
-    private Instant creationDateTime;
-    private Instant expirationDateTime;
+    private LocalDateTime creationDateTime;
+    private LocalDateTime expirationDateTime;
     private boolean isExpired;
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private long selectedChoice;

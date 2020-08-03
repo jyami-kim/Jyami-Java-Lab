@@ -1,5 +1,6 @@
 package com.jyami.springsecuritypolling.domain.user;
 
+import com.jyami.springsecuritypolling.domain.BaseTimeEntity;
 import lombok.*;
 import org.hibernate.annotations.NaturalId;
 
@@ -17,7 +18,7 @@ import java.util.Set;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
 @Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "username" }), @UniqueConstraint(columnNames = { "email" }) })
-public class User {
+public class User extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -7,8 +7,7 @@ import lombok.*;
  */
 @Getter
 @NoArgsConstructor
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
-@Builder
-public class UserIdentityAvailiabilityResponse {
+@AllArgsConstructor
+public class UserIdentityAvailabilityResponse {
     private boolean available;
 }
