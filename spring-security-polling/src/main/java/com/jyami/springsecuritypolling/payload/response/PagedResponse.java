@@ -1,8 +1,9 @@
 package com.jyami.springsecuritypolling.payload.response;
 
 import lombok.*;
-import sun.jvm.hotspot.debugger.Page;
+import org.springframework.data.domain.Page;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -21,14 +22,15 @@ public class PagedResponse<T> {
     private int totalPages;
     private boolean last;
 
-    public static <T> PagedResponse<Object> getEmptyPages(){
-        return PagedResponse.builder()
-                .content(Collections.emptyList())
-                .page(0)
-                .size(0)
-                .totalElements(0)
-                .totalPages(0)
-                .last(true)
+    public static <T, R> PagedResponse<T> of(List<T> content, Page<R> pages) {
+        return PagedResponse.<T>builder()
+                .content(content)
+                .page(pages.getNumber())
+                .size(pages.getSize())
+                .totalElements(pages.getTotalElements())
+                .totalPages(pages.getTotalPages())
+                .last(pages.isLast())
                 .build();
     }
+
 }

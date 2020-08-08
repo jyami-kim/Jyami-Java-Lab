@@ -1,5 +1,8 @@
 package com.jyami.springsecuritypolling.domain.poll;
 
+import com.querydsl.core.types.Projections;
+import com.querydsl.jpa.impl.JPAQueryFactory;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
 
 import java.util.List;
@@ -11,8 +14,20 @@ import static com.jyami.springsecuritypolling.domain.poll.QVote.vote;
  */
 public class VoteRepositoryImpl extends QuerydslRepositorySupport implements VoteRepositoryCustom {
 
-    public VoteRepositoryImpl(Class<?> domainClass) {
+    private final JPAQueryFactory queryFactory;
+
+    public VoteRepositoryImpl(JPAQueryFactory queryFactory) {
         super(Vote.class);
+        this.queryFactory = queryFactory;
     }
 
+    @Override
+    public List<ChoiceVoteCount> countByPollIdInGroupByChoiceId(List<Long> pollIds) {
+        return queryFactory.select(Projections.fields(ChoiceVoteCount.class,
+                vote.choice.id.as("choiceId"),
+                vote.count()).as("voteCount"))
+                .where(vote.poll.id.in(pollIds))
+                .groupBy(vote.choice.id)
+                .fetch();
+    }
 }

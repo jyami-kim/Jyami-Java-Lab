@@ -1,8 +1,6 @@
 package com.jyami.springsecuritypolling.service;
 
-import com.jyami.springsecuritypolling.domain.poll.Poll;
-import com.jyami.springsecuritypolling.domain.poll.PollRepository;
-import com.jyami.springsecuritypolling.domain.poll.VoteRepository;
+import com.jyami.springsecuritypolling.domain.poll.*;
 import com.jyami.springsecuritypolling.domain.user.User;
 import com.jyami.springsecuritypolling.domain.user.UserRepository;
 import com.jyami.springsecuritypolling.exception.ResourceNotFoundException;
@@ -16,6 +14,11 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 
 /**
@@ -45,23 +48,29 @@ public class PollReadService {
         return voteRepository.countByUserId(userId);
     }
 
-    public PagedResponse<PollResponse> getPollsCreatedBy(String username, UserPrincipal currentUser, Pageable pageable) {
+    public PagedResponse<?> getPollsCreatedBy(String username, UserPrincipal currentUser, Pageable pageable) {
         User user = userRepository.findByUsername(username)
                 .orElseThrow(() -> new ResourceNotFoundException("User", "username", username));
 
         // Retrieve all polls created by the given username
         Page<Poll> polls = pollRepository.findByCreatedBy(user.getId(), pageable);
-
+        if (polls.getNumberOfElements() == 0) {
+            return PagedResponse.getEmptyPages(polls);
+        }
 
         // Map Polls to PollResponses containing vote counts and poll creator details
         List<Long> pollIds = polls.map(Poll::getId).getContent();
-        Map<Long, Long> choiceVoteCountMap = getChoiceVoteCountMap(pollIds);
-        Map<Long, Long> pollUserVoteMap = getPollUserVoteMap(currentUser, pollIds);
+        List<ChoiceVoteCount> choiceVoteCountMap = voteRepository.countByPollIdInGroupByChoiceId(pollIds);
+        List<ChoiceVoteMap> pollUserVoteMap = voteRepository.findByUserIdAndPollIdIn(currentUser.getId(), pollIds)
+                .stream().map(vote -> new ChoiceVoteMap(vote.getId(), vote.getChoice().getId()))
+                .collect(Collectors.toList());
         List<PollResponse> pollResponses = polls.map(poll -> {
             return ModelMapper.mapPollToPollResponse(poll, choiceVoteCountMap, user, pollUserVoteMap == null ? null : pollUserVoteMap.getOrDefault(poll.getId(), null));
         }).getContent();
-        return new PagedResponse<>(pollResponses, polls.getNumber(), polls.getSize(), polls.getTotalElements(), polls.getTotalPages(), polls.isLast());
+        return PagedResponse.of(pollResponses, polls);
+
     }
+
 
 
 }
