@@ -16,8 +16,8 @@ public class Main {
 
         jyami.publishText();
 
-        jyami.unSubscribe(facebook);
-
-        jyami.publishText();
+//        jyami.unSubscribe(facebook);
+//
+//        jyami.publishText();
     }
 }
