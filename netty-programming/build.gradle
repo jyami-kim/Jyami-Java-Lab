@@ -12,4 +12,11 @@ repositories {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib"
     implementation group: 'io.netty', name: 'netty-all', version: '4.1.63.Final'
+    implementation group: 'com.google.guava', name: 'guava', version: '30.1.1-jre'
+    testImplementation('org.junit.jupiter:junit-jupiter:5.4.0')
+
+}
+
+test {
+    useJUnitPlatform()
 }

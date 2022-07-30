@@ -1,0 +1,14 @@
+redis:
+  url: redis://localhost:6379
+  stream:
+    key: factory-stream
+    group: facotry-worker-group
+    defaultOffset: 0-0
+    groupReadTimeout: 5
+  set:
+    key: duplication_factory_checker
+
+scheduler:
+  corePoolSize: 5
+
+
