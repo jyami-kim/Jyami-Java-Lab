@@ -8,20 +8,19 @@ import org.springframework.boot.context.properties.ConstructorBinding
 data class RedisConfig(
     val url: String,
     val stream: Stream,
-    val set: Set
-//    val corePendingTime: Int,
-//    val limitPendingTime: Long,
-//    val xReadGroupTimeout: Long,
-//    val executorTimeout: Long,
+    val set: Set,
+    val leaderKey: String
 ) {
     data class Stream(
         val key: String,
         val group: String,
         val defaultOffset: String,
-        val groupReadTimeout: Long
+        val groupReadTimeout: Long,
+        val limitPendingTime: Long
     )
 
     data class Set(
-        val key: String
+        val duplicationKey: String,
+        val consumerKey: String
     )
 }

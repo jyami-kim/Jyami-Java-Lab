@@ -5,4 +5,4 @@ import org.springframework.boot.context.properties.ConstructorBinding
 
 @ConstructorBinding
 @ConfigurationProperties(prefix = "scheduler")
-data class SchedulerConfig(val corePoolSize: Int)
+data class SchedulerConfig(val corePoolSize: Int, val executorTimeout: Long)

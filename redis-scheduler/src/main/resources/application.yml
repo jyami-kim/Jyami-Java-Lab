@@ -1,3 +1,6 @@
+server:
+  shutdown: graceful
+
 redis:
   url: redis://localhost:6379
   stream:
@@ -5,10 +8,14 @@ redis:
     group: facotry-worker-group
     defaultOffset: 0-0
     groupReadTimeout: 5
+    limitPendingTime: 1
   set:
-    key: duplication_factory_checker
+    duplicationKey: duplication_factory_checker
+    consumerKey: factory_consumer
+  leaderKey: factory_leader
 
 scheduler:
   corePoolSize: 5
+  executorTimeout: 20
 
 

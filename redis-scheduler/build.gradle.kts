@@ -5,6 +5,7 @@ plugins {
     id("io.spring.dependency-management") version "1.0.12.RELEASE"
     kotlin("jvm") version "1.6.21"
     kotlin("plugin.spring") version "1.6.21"
+    id("com.avast.gradle.docker-compose") version "0.9.5"
 }
 
 group = "com.jyami"
@@ -27,7 +28,7 @@ dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-    implementation ("io.lettuce:lettuce-core:6.1.8.RELEASE")
+    implementation("io.lettuce:lettuce-core:6.1.8.RELEASE")
     compileOnly("org.projectlombok:lombok")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
@@ -47,3 +48,13 @@ tasks.withType<KotlinCompile> {
 tasks.withType<Test> {
     useJUnitPlatform()
 }
+
+dockerCompose {
+    projectName = "redis-scheduler"
+    useComposeFiles = listOf("config/docker-compose.yml")
+}
+
+//task("runLocal", JavaExec::class) {
+//    dependsOn("composeUp")
+//    javaexec()
+//}
